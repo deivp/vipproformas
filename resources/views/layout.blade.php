@@ -49,7 +49,7 @@
 				<a href="{{ route('user.nuevo_anuncio') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
 				<ul class="account-btns">
 					<li><a href="{{ route('public.proformas') }}"><i class="fas fa-file-invoice-dollar"></i> Ùltimas Proformas</a></li>
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarse</a></li>
+					<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarme</a></li>
 					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Acceso Usuarios</a></li>
 				</ul>
 			</div><!-- Btn Extras -->
@@ -73,7 +73,7 @@
 					<a href="{{ route('user.nuevo_anuncio') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
 					<ul class="account-btns">
 						<li><a href="{{ route('public.proformas') }}"><i class="fas fa-file-invoice-dollar"></i> Ùltimas Proformas</a></li>
-						<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarse</a></li>
+						<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarme</a></li>
 						<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Acceso Usuarios</a></li>
 					</ul>
 				</div><!-- Btn Extras -->
@@ -179,79 +179,70 @@
 <div class="account-popup-area signin-popup-box">
 	<div class="account-popup">
 		<span class="close-popup"><i class="la la-close"></i></span>
-		<h3>User Login</h3>
-		<span>Click To Login With Demo User</span>
-		<div class="select-user">
-			<span>Candidate</span>
-			<span>Employer</span>
-		</div>
-		<form>
+		<h3>Ingresa a tu cuenta</h3>
+		<form action="{{ route('panel.mis_proformas') }}" method="GET">
 			<div class="cfield">
-				<input type="text" placeholder="Username" />
-				<i class="la la-user"></i>
+				<input type="email" placeholder="E-mail" />
+				<i class="la la-envelope-o"></i>
 			</div>
 			<div class="cfield">
 				<input type="password" placeholder="********" />
 				<i class="la la-key"></i>
 			</div>
 			<p class="remember-label">
-				<input type="checkbox" name="cb" id="cb1"><label for="cb1">Remember me</label>
+				<input type="checkbox" name="cb" id="cb1"><label for="cb1">Recordar</label>
 			</p>
-			<a href="#" title="">Forgot Password?</a>
-			<button type="submit">Login</button>
+			<a href="#" title="">Olvide mi Password</a>
+			<button type="submit">Ingresar</button>
 		</form>
-		<div class="extra-login">
-			<span>Or</span>
+		{{-- <div class="extra-login">
+			<span>O</span>
 			<div class="login-social">
-				<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
-				<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+				<a class="fb-login" href="#" title=""><i class="fab fa-facebook-square"></i></a>
+				<a class="tw-login" href="#" title=""><i class="fab fa-twitter-square"></i></a>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 </div><!-- LOGIN POPUP -->
 
 <div class="account-popup-area signup-popup-box">
 	<div class="account-popup">
 		<span class="close-popup"><i class="la la-close"></i></span>
-		<h3>Sign Up</h3>
-		<div class="select-user">
-			<span>Candidate</span>
-			<span>Employer</span>
-		</div>
+		<h3>Registrarme</h3>
+		{{-- <div class="select-user">
+			<span>Quiero buscar</span>
+			<span>Quiero anunciar</span>
+		</div> --}}
 		<form>
 			<div class="cfield">
-				<input type="text" placeholder="Username" />
-				<i class="la la-user"></i>
+				<input type="text" placeholder="Email" />
+				<i class="la la-envelope-o"></i>
 			</div>
 			<div class="cfield">
 				<input type="password" placeholder="********" />
 				<i class="la la-key"></i>
 			</div>
-			<div class="cfield">
-				<input type="text" placeholder="Email" />
-				<i class="la la-envelope-o"></i>
-			</div>
-			<div class="dropdown-field">
+			{{-- <div class="dropdown-field">
 				<select data-placeholder="Please Select Specialism" class="chosen">
 					<option>Web Development</option>
 					<option>Web Designing</option>
 					<option>Art & Culture</option>
 					<option>Reading & Writing</option>
 				</select>
-			</div>
+			</div> --}}
 			<div class="cfield">
-				<input type="text" placeholder="Phone Number" />
+				<input type="text" placeholder="Celular" />
 				<i class="la la-phone"></i>
 			</div>
-			<button type="submit">Signup</button>
+			<button type="submit">Registrarme</button>
 		</form>
-		<div class="extra-login">
-			<span>Or</span>
+		{{-- <div class="extra-login">
+			<span>O</span>
 			<div class="login-social">
-				<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
-				<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+				<a class="fb-login" href="#" title=""><i class="fab fa-facebook-square"></i></a>
+				<a class="tw-login" href="#" title=""><i class="fab fa-twitter-square"></i></a>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 </div><!-- SIGNUP POPUP -->
 

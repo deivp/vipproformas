@@ -33,3 +33,5 @@ Route::get('contactos-vipproformas', function(){
 
 //USER PAGES
 Route::get('nuevo-anuncio','userPageController@crearAnuncio')->name('user.nuevo_anuncio');
+
+Route::get('panel','panelController@index')->name('panel.mis_proformas');
