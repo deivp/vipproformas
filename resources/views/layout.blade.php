@@ -46,7 +46,7 @@
 		</div>
 		<div class="responsive-opensec">
 			<div class="btn-extars">
-				<a href="{{ route('user.nuevo_anuncio') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
+				<a href="{{ route('panel.nueva_proforma') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
 				<ul class="account-btns">
 					<li><a href="{{ route('public.proformas') }}"><i class="fas fa-file-invoice-dollar"></i> Ùltimas Proformas</a></li>
 					<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarme</a></li>
@@ -70,11 +70,24 @@
 					<a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
-					<a href="{{ route('user.nuevo_anuncio') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
+					<a href="{{ route('panel.nueva_proforma') }}" title="Nuevo Anuncio" class="post-job-btn"><i class="la la-plus"></i>Anunciar</a>
 					<ul class="account-btns">
 						<li><a href="{{ route('public.proformas') }}"><i class="fas fa-file-invoice-dollar"></i> Ùltimas Proformas</a></li>
 						<li class="signup-popup"><a title=""><i class="la la-key"></i> Registrarme</a></li>
 						<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Acceso Usuarios</a></li>
+						@if(auth()->check()){
+						<li><a href="">Hola, {{ auth()->user()->name }}</a></li>
+						<li><a  href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                Salir
+                            </a></li>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+							}
+						@endif
 					</ul>
 				</div><!-- Btn Extras -->
 				<nav>
@@ -180,13 +193,24 @@
 	<div class="account-popup">
 		<span class="close-popup"><i class="la la-close"></i></span>
 		<h3>Ingresa a tu cuenta</h3>
-		<form action="{{ route('panel.mis_proformas') }}" method="GET">
+		<form action="acceder" method="POST">
+			@csrf
 			<div class="cfield">
-				<input type="email" placeholder="E-mail" />
+				<input id="email" placeholder="E-mail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
 				<i class="la la-envelope-o"></i>
 			</div>
 			<div class="cfield">
-				<input type="password" placeholder="********" />
+				<input id="password" placeholder="*******" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
 				<i class="la la-key"></i>
 			</div>
 			<p class="remember-label">

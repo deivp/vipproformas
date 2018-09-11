@@ -23,7 +23,7 @@ class panelController extends Controller
      */
     public function create()
     {
-        //
+        return "crear proforma";
     }
 
     /**

@@ -11,9 +11,14 @@ use App\Company;
 use App\User;
 
 class publicPagesController extends Controller
+
 {
+
+    
+
     public function index(){
 
+        
         $categories = Category::all();
         $ads = Ad::limit(6)->get();
         $companies = Company::all();
@@ -22,7 +27,7 @@ class publicPagesController extends Controller
         $total_companies = Company::count();
         $total_users = User::count();
 
-        return view('home', compact('categories','ads','companies','total_ads','total_companies','total_users'));
+        return view('inicio', compact('categories','ads','companies','total_ads','total_companies','total_users'));
     }
 
     public function ultimas_proformas(){
