@@ -34,7 +34,7 @@ Route::get('contactos-vipproformas', function(){
 //USER PAGES
 Route::get('nueva-proforma','panelController@create')->name('panel.nueva_proforma');
 
-Route::get('panel','panelController@index')->name('panel.mis_proformas');
+Route::get('panel','panelController@index')->name('panel.mis_proformas')->middleware('auth');
 
 Route::post('acceder', 'Auth\LoginController@login');
 Route::post('salir', 'Auth\LoginController@logout')->name('logout');
