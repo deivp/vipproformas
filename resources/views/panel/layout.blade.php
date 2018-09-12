@@ -31,7 +31,7 @@
 	
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a></div>
+			<div class="res-logo"><a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a></div>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="images/icon.png" alt="" /> Menu
@@ -62,10 +62,10 @@
 		<div class="menu-sec">
 			<div class="container">
 				<div class="logo">
-					<a href="index.html" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a>
+					<a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="my-profiles-sec">
-					<span><img src="http://placehold.it/50x50" alt="" /> Ali TUFAN <i class="la la-bars"></i></span>
+					<span><img width="50" src="{{ asset('images') }}/{{ $company->image }}" alt="" />Hola, {{ Auth::user()->name }}<i class="la la-bars"></i></span>
 				</div>
 				<div class="wishlist-dropsec">
 					{{-- <span><i class="la la-heart"></i><strong>3</strong></span> --}}
@@ -217,7 +217,7 @@
 <div class="profile-sidebar">
 	<span class="close-profile"><i class="la la-close"></i></span>
 	<div class="can-detail-s">
-		<div class="cst"><img src="http://placehold.it/145x145" alt="" /></div>
+		<div class="cst"><img src="{{ asset('images') }}/{{ $company->image }}" alt="" /></div>
 		<h3>David Isama</h3>
 		<span><i>UX / UI Designer</i> at Atract Solutions</span>
 		<p>creativelayers088@gmail.com</p>

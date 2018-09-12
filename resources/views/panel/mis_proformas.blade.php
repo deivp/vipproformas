@@ -47,7 +47,7 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<div class="border-title"><h3>Candidates Dashboard</h3><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
+					 			<div class="border-title"><h3>Mis Proformas</h3><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
 						 		<div class="edu-history-sec">
 		 							
 		 						</div>
