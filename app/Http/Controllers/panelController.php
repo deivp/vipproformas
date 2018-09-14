@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Company;
+use App\Ad;
 use Illuminate\Support\Facades\Auth;
+
 class panelController extends Controller
 {
     /**
@@ -17,8 +19,8 @@ class panelController extends Controller
     {   
 
         $company = Company::where('user_id',Auth::User()->id)->first();
-
-        return view('panel.mis_proformas', compact('company'));
+        $ads = Ad::where('user_id',Auth::User()->id)->get();
+        return view('panel.mis_proformas', compact('company','ads'));
     }
 
     /**
@@ -50,7 +52,7 @@ class panelController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

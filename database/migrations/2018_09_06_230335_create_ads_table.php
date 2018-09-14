@@ -15,10 +15,10 @@ class CreateAdsTable extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable;
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('category')->nullable;
-            $table->string('subcategory')->nullable;
+            $table->string('category');
+            $table->string('subcategory')->nullable();
             $table->string('title');
             $table->text('description');
             $table->float('price')->nullable();

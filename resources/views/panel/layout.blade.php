@@ -58,14 +58,14 @@
 		</div>
 	</div>
 	
-	<header class="stick-top">
+	<header class="stick-top forsticky" style="background-color: white">
 		<div class="menu-sec">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="logo">
 					<a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="my-profiles-sec">
-					<span><img width="50" src="{{ asset('images') }}/{{ $company->image }}" alt="" />Hola, {{ Auth::user()->name }}<i class="la la-bars"></i></span>
+					<span style="color: black"><img width="50" src="{{ asset('images') }}/{{ $company->image }}" alt="" />Hola, {{ Auth::user()->name }}<i class="la la-bars"></i></span>
 				</div>
 				<div class="wishlist-dropsec">
 					{{-- <span><i class="la la-heart"></i><strong>3</strong></span> --}}
@@ -122,7 +122,7 @@
 				<nav>
 					<ul>
 						<li>
-							<a href="#" class="btn btn-primary" title=""><i class="fas fa-bullhorn"></i> ANUNCIAR</a>
+							<a href="{{ route('panel.create') }}" class="post-job-btn" title="">ANUNCIAR</a>
 						</li>
 					</ul>
 				</nav><!-- Menus -->

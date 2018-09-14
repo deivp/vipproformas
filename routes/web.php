@@ -31,11 +31,23 @@ Route::get('contactos-vipproformas', function(){
 })->name('public.contactos');
 
 
-//USER PAGES
-Route::get('nueva-proforma','panelController@create')->name('panel.nueva_proforma');
+//PANEL PAGES
+Route::get('nueva-proforma','Panel\proformsController@create')
+		->name('panel.nueva_proforma')
+		->middleware('auth');
 
-Route::get('panel','panelController@index')->name('panel.mis_proformas')->middleware('auth');
+Route::get('panel','Panel\proformsController@index')
+		->name('panel.mis_proformas')
+		->middleware('auth');
+
+Route::get('verProforma/{ads}','Panel\proformsController@show')->name('panel.ver_proforma');
+Route::get('create','Panel\proformsController@create')->name('panel.create')->middleware('auth');
+Route::post('store','Panel\proformsController@store')->name('panel.store');
+
+
 
 Route::post('acceder', 'Auth\LoginController@login');
 Route::post('salir', 'Auth\LoginController@logout')->name('logout');
+
+
 

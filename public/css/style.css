@@ -16,6 +16,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video{
     margin:0;
+    color: #333333;
     padding:0;
     border:0;
     font-size:100%;
@@ -218,6 +219,7 @@ input[type="email"], textarea {
     margin-bottom: 20px;
     padding: 10px 18px;
     width: 100%;
+    color: #333333;
 
 }
 textarea{
@@ -225,7 +227,7 @@ textarea{
     min-height:100px;
     padding: 19px 28px;
 }
-strong{font-weight:800}
+strong{font-weight:800; color: #333333}
 button{
     float:right;
     font-size:18px;
@@ -4260,16 +4262,8 @@ footer.style3 span, footer.style3 a {
     height: 100%;
     content: "";
     z-index: -1;
-    
-    background: rgb(139,145,221);
-    background: -moz-linear-gradient(45deg,  rgba(139,145,221,1) 0%, rgba(16,25,93,1) 71%, rgba(16,25,93,1) 100%);
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(139,145,221,1)), color-stop(71%,rgba(16,25,93,1)), color-stop(100%,rgba(16,25,93,1)));
-    background: -webkit-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: -o-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: -ms-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );
-    opacity: 0.8;
+    background: white;
+    box-shadow: 8px 0px 20px gray;
 }
 .inner-header::after {
     position: absolute;
@@ -4278,9 +4272,7 @@ footer.style3 span, footer.style3 a {
     width: 100%;
     height: 100%;
     content: "";
-    background-image: url('../images/lines.png');
     z-index: 0;
-    opacity: 0.14;
 }
 .inner-header {
     float: left;
@@ -5421,7 +5413,7 @@ aside .widget.border:first-child {
     font-family: Open Sans;
     font-size: 13px;
     font-weight: normal;
-    color: #202020;
+    color: #333333;
     line-height: 28px;
     display: inline-block;
     margin-right: 7px;
@@ -5491,7 +5483,7 @@ aside .widget.border:first-child {
 }
 .job-single-head2 > span strong {
     font-weight: normal;
-    color: #202020;
+    color: #333333;
 }
 .job-wide-devider .job-overview {
     margin: 0;
@@ -5825,7 +5817,7 @@ aside .widget.border:first-child {
     border-radius: 8px;
 
     font-size: 13px;
-    color: #888888;
+    color: #333333;
     padding: 15px 25px;
     font-family: Open Sans;
     margin-bottom: 15px;
@@ -6580,11 +6572,11 @@ aside .widget.border:first-child {
     background: #ffffff;
     font-family: Open Sans;
     font-size: 13px;
-    color: #101010;
+    color: #333333;
     line-height: 24px;
 }
 .pf-field > textarea {
-    color: #888888;
+    color: #333333;
     padding: 30px 30px;
 }
 .profile-form-edit > form button {
@@ -8644,7 +8636,7 @@ header.gradient{
     top: -5px;
     font-size: 10px;
     font-weight: normal;
-    background: #8b91dd;
+    background: #333333;
     height: 16px;
     line-height: 14px;
     width: 16px;
@@ -9536,7 +9528,7 @@ blockquote > strong {
     font-weight: normal;
     font-size: 13px;
     font-style: italic;
-    color: #202020;
+    color: #333333;
     margin: 0;
         margin-top: 0px;
     margin-top: 18px;
