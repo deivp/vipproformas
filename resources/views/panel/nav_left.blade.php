@@ -3,7 +3,7 @@
 		<div class="tree_widget-sec">
 			<ul>
 				
-				<li class="inner-child active">
+				<li class="inner-child">
 					<a href="{{ route('panel.mis_proformas') }}" title="">
 						<i class="far fa-file-alt light_icon"></i>Mis Proformas</a>
 				</li>
@@ -11,7 +11,7 @@
 					<a href="#" title=""><i class="la la-money"></i>Transacciones</a>
 				</li>
 				<li class="inner-child">
-				<a href="#" title=""><i class="la la-file-text"></i>Mi Perfil</a>
+				<a href="#" title=""><i class="fas fa-user-cog"></i>Mi Perfil</a>
 				<ul style="display: block;">
 					<li><a href="#" title="">Datos de usuario</a></li>
 					<li><a href="#" title="">Cambiar contraseña</a></li>

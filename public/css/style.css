@@ -556,12 +556,11 @@ label::after {
 .menu-sec {
     float: left;
     width: 100%;
-    margin: 30px 0;
+    padding:14px 0px 14px 0px; 
     margin-bottom: 0;
 }
 .logo {
     float: left;
-    margin: 3px 0;
     position: relative;
 }
 .logo a {
@@ -10904,19 +10903,20 @@ footer.ft .scrollup {
     background-color: #171C36;
 }
 .forsticky.sticky .menu-sec nav > ul > li > a {
-    color: red;
+   color: white;
     line-height: 10px;
 }
 .forsticky.sticky .account-btns > li a {
     color: white;
 }
 .forsticky.sticky .menu-sec {
-    margin-top: 23px;
-    margin-bottom: 17px;
+    
+    background-color: #273248;
+    color: white;
 }
 .forsticky.sticky .post-job-btn:hover {
     background: #fb236a;
-    color: #FFF;
+    color: white;
 }
 .forsticky.sticky {
     position: fixed;

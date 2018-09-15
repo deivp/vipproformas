@@ -57,7 +57,7 @@ Route::delete('delete/{ad}','Panel\proformsController@destroy')
 
 
 
-Route::post('acceder', 'Auth\LoginController@login');
+Route::post('acceder', 'Auth\LoginController@login')->name('user_login');
 Route::post('salir', 'Auth\LoginController@logout')
 		->name('logout');
 

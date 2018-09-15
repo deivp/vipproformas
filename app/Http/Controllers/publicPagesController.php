@@ -65,6 +65,7 @@ class publicPagesController extends Controller
                     ->limit(20)
                     ->get();
 
+        
         $total_ads = $ads->count();
     	
         return view('search_result',compact('ads','tag','states','categories','total_ads'));

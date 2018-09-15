@@ -237,7 +237,7 @@
 								<div class="col-lg-6">
 									<form>
 										<input type="text" placeholder="E-mail" />
-										<button type="submit"><i class="la la-paper-plane"></i></button>
+										<button type="submit"><i class="la la-paper-plane icon_white"></i></button>
 									</form>
 								</div>
 							</div>

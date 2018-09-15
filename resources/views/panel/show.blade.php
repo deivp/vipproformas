@@ -1,4 +1,4 @@
-@extends('panel.layout')
+@extends('layout')
 @section('contenido')
 	<div class="inner-header"></div>
 	<section>

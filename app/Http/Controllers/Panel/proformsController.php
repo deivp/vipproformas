@@ -20,6 +20,7 @@ class proformsController extends Controller
      */
     public function index()
     {
+        
         $company = Company::where('user_id',Auth::User()->id)->first();
         $ads = Ad::orderbY('id','DESC')->where('user_id',Auth::User()->id)->get();
         return view('panel.mis_proformas', compact('company','ads'));
