@@ -40,14 +40,26 @@ Route::get('panel','Panel\proformsController@index')
 		->name('panel.mis_proformas')
 		->middleware('auth');
 
-Route::get('verProforma/{ads}','Panel\proformsController@show')->name('panel.ver_proforma');
-Route::get('create','Panel\proformsController@create')->name('panel.create')->middleware('auth');
-Route::post('store','Panel\proformsController@store')->name('panel.store');
+Route::get('verProforma/{ads}','Panel\proformsController@show')
+		->name('panel.ver_proforma');
+
+Route::get('create','Panel\proformsController@create')
+		->name('panel.create')
+		->middleware('auth');
+
+Route::post('store','Panel\proformsController@store')
+		->name('panel.store');
+
+Route::put('update/{ad}','Panel\proformsController@update')->name('panel.update');
+
+Route::delete('delete/{ad}','Panel\proformsController@destroy')
+		->name('panel.destroy');
 
 
 
 Route::post('acceder', 'Auth\LoginController@login');
-Route::post('salir', 'Auth\LoginController@logout')->name('logout');
+Route::post('salir', 'Auth\LoginController@logout')
+		->name('logout');
 
 
 

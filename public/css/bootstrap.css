@@ -3011,27 +3011,12 @@ fieldset:disabled a.btn {
 }
 
 .btn-link {
+  color: #333333;
+  font-size: 80%;
   font-weight: 400;
-  color: #007bff;
   background-color: transparent;
 }
 
-.btn-link:hover {
-  color: #0056b3;
-  text-decoration: underline;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.btn-link:focus, .btn-link.focus {
-  text-decoration: underline;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.btn-link:disabled, .btn-link.disabled {
-  color: #6c757d;
-}
 
 .btn-lg, .btn-group-lg > .btn {
   padding: 0.5rem 1rem;

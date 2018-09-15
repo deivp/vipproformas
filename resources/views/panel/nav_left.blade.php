@@ -4,7 +4,7 @@
 			<ul>
 				
 				<li class="inner-child active">
-					<a href="#" title="">
+					<a href="{{ route('panel.mis_proformas') }}" title="">
 						<i class="far fa-file-alt light_icon"></i>Mis Proformas</a>
 				</li>
 				<li class="inner-child">

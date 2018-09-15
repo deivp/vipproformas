@@ -28,7 +28,7 @@ class CreateAdsTable extends Migration
             $table->text('video')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
-            $table->char('status')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

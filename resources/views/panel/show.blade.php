@@ -9,7 +9,7 @@
 				 	@include('panel.nav_left')
 				 	<div class="col-lg-1 column"></div>
 				 	<div class="col-lg-8 column">
-				 		<a href="" class="btn btn-dark"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;
+				 		<a href="{{ route('panel.mis_proformas') }}" class="btn btn-dark"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;
 				 		<a href="" class="btn btn-dark"><i class="fas fa-trash-alt light_icon"></i> ELIMINAR PROFORMA</a>
 				 		<hr>
 				 		<div class="alert alert-light alert-dismissible fade show" role="alert">
@@ -44,8 +44,18 @@
 					 				<h2><i class="far fa-file-alt"></i> Publicar Proforma</h2>
 					 			</div>
 					 			<div class="block" style="margin-top: -80px;">
+					 				@if(session('msj_edit'))
+			 							<div class="alert alert-success alert-dismissible fade show" role="alert">
+										  <strong>Los cambios </strong> han sido guardados correctamente.
+										  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										    <span aria-hidden="true">&times;</span>
+										  </button>
+										</div>
+			 						@endif
 									<div class="change-password">
-						 			<form>
+						 			<form method="POST" action="{{ route('panel.update',$ad->id) }}">
+						 				@csrf
+						 				{{ method_field('PUT') }}
 						 				<div class="row">
 						 					<div class="col-lg-10">
 						 						<div class="block" style="margin-top: -50px;">
@@ -60,6 +70,10 @@
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Titulo</b> (Titulo de la Proforma, caracteristica principal)</span>
 									 							<input type="text" value="{{ $ad->title }}" name="title" />
+									 							@if($errors->has('title'))
+
+									 								<small class="alert alert-danger">{{ $errors->first('title') }}</small>
+									 							@endif
 									 						</div>
 							 							</div>
 							 							<div class="col-3">
@@ -73,6 +87,9 @@
 						 						<span class="pf-title"><b>Descripción</b> (Cuentanos el detalle de la proforma, esto te ayudara llegar a mas personas)</span>
 						 						<div class="pf-field">
 						 							<textarea name="description">{{ $ad->description }}</textarea>
+						 							@if($errors->has('description'))
+						 								<small class="alert alert-danger">{{ $errors->first('description') }}</small>
+						 							@endif
 						 						</div>
 						 						
 						 						<div class="block" style="margin-top: -70px;">
@@ -80,12 +97,16 @@
 							 							<div class="col-6">
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Categoria</b></span>
-									 							<select data-placeholder="Select Your CV" class="form-control">
-									 								<option value="">{{ $ad->category }}</option>
+									 							<select name="category" class="form-control">
+									 								<option value="{{ $ad->category }}">{{ $ad->category }}</option>
+									 								
 									 								@foreach($categories as $category)
-									 									<option value="">{{ $category->name }}</option>
+									 									<option value="{{ $category->name }}">{{ $category->name }}</option>
 									 								@endforeach
 																</select>
+																@if($errors->has('category'))
+									 								<small class="alert alert-danger">{{ $errors->first('category') }}</small>
+									 							@endif
 									 						</div>
 							 							</div>
 							 							<div class="col-6">
@@ -104,12 +125,15 @@
 							 							<div class="col-4">
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Provincia</b></span>
-									 							<select data-placeholder="Select Your CV" class="form-control">
-									 								<option value="">{{ strtolower($ad->state) }}</option>
+									 							<select name="state" class="form-control">
+									 								<option value="{{ $ad->state }}">{{ strtolower($ad->state) }}</option>
 																	@foreach($states as $state)
-									 									<option value="">{{ $state->name }}</option>
+									 									<option value="{{ $state->name }}">{{ $state->name }}</option>
 									 								@endforeach
 																</select>
+																@if($errors->has('state'))
+									 								<small class="alert alert-danger">{{ $errors->first('state') }}</small>
+									 							@endif
 									 						</div>
 							 							</div>
 							 							<div class="col-4">

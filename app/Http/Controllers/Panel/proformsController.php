@@ -59,23 +59,25 @@ class proformsController extends Controller
             'description.min'=>'La descripción debe tener mínimo 5 caracteres',
             'description.required'=>'Complete la descripción de la proforma',
             'category.required'=>'Debe seleccionar la categoria de la proforma',
-            'state.required'=>'Debe seleccionar una provincia'
+            'state.required'=>'Debe seleccionar una provincia',
         ]
     );
         
         if($ad['price']==null){
             $price = 0.00;
         }
+        
+        //dd($ad['state']);
 
-        //dd($ad);
         Ad::create([
+            'state'=>$ad['state'],
             'user_id'=>Auth::User()->id,
             'title'=>$ad['title'],
             'price'=>$price,
             'description'=>$ad['description'],
             'category'=>$ad['category'],
-            'state'=>$ad['state'],
             'imagen_1'=>'avatar_trab_b.png',
+            
 
         ]);
 
@@ -115,9 +117,30 @@ class proformsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Ad $ad)
     {
-        //
+        
+
+        $ad_data = request()->validate([
+            'title'=>'required',
+            'description'=>'required|min:5',
+            'category'=>'required',
+            'price'=>'',
+            'state'=>'required',
+        ],[
+            'title.required'=>'Escribe un titulo para la proforma',
+            'description.min'=>'La descripción debe tener mínimo 5 caracteres',
+            'description.required'=>'Complete la descripción de la proforma',
+            'category.required'=>'Debe seleccionar la categoria de la proforma',
+            'state.required'=>'Debe seleccionar una provincia',
+        ]);
+
+        //$ad_data = request()->all();
+
+
+        $ad->update($ad_data);
+
+        return redirect()->route('panel.ver_proforma',['ad'=>$ad])->with("msj_edit",'mensaje');
     }
 
     /**
@@ -126,8 +149,10 @@ class proformsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Ad $ad)
+    {   
+        $ad->delete();  
+
+        return redirect()->route('panel.mis_proformas');
     }
 }

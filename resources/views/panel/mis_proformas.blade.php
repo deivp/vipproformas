@@ -23,7 +23,7 @@
 					 						<div class="col-lg-9">
 					 							<div class="row" style="padding-bottom: 10px;">
 					 								<div class="col-lg-10">
-					 									<h6 style="color: #5CBEFF;"><a href="{{ route('panel.ver_proforma',$ad->id) }}">{{ $ad->title }}</a></h6>
+					 									<h6 style="color: #5CBEFF;"><a href="{{ route('panel.ver_proforma',$ad->id) }}">{{ $ad->title }}</a> <a target="_blank" href="{{ route('public.ver_proforma',[$ad->id,$ad->title])}}"> <small> <i class="fas fa-external-link-alt"></i></small></a></h6>
 					 								</div>
 					 								<div class="col-lg-2">
 					 									<a href="">En revision</a>
@@ -51,13 +51,13 @@
 					 							
 					 							<div class="row" style="background-color: #F8F8F8; padding: 5px;">
 					 								<div class="col">
-					 									<small>
-					 										<a href="#"><i class="fas fa-pen"></i> Editar</a>
-					 									</small>
-					 									|
-					 									<small>
-					 										<a href="#"><i class="fas fa-trash-alt"></i> Eliminar</a>
-					 									</small>
+					 										<form onsubmit="return confirm('¿Esta seguro de eliminar esta proforma?');" action="{{ route('panel.destroy',$ad->id) }}" method="POST">
+					 											@csrf
+					 											{{ method_field('DELETE') }}
+					 											<a class="btn btn-link pull-left" href="{{ route('panel.ver_proforma',$ad->id) }}"><i class="fas fa-pen"></i> Editar</a>
+					 											<button class="btn btn-link pull-left"><i class="fas fa-trash-alt"></i> Eliminar</button>
+					 										</form>
+					 									
 					 								</div>
 					 							</div>
 					 						</div>

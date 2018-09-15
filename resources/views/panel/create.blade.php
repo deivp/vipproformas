@@ -9,7 +9,7 @@
 				 	@include('panel.nav_left')
 				 	<div class="col-lg-1 column"></div>
 				 	<div class="col-lg-8 column">
-				 		<a href="" class="btn btn-dark"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;
+				 		<a href="{{ route('panel.mis_proformas') }}" class="btn btn-dark"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;
 				 		<hr>
 				 		<div class="alert alert-light alert-dismissible fade show" role="alert">
 						  <strong>Recomendaciones para completar tu proforma:</strong><br>
@@ -40,6 +40,7 @@
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec" style="margin-top: -40px;">
 					 			<div class="border-title">
+					 				<hr>
 					 				<h2><i class="far fa-file-alt"></i> Publicar Proforma</h2>
 					 			</div>
 					 			<div class="block" style="margin-top: -80px;">
@@ -74,7 +75,7 @@
 							 							</div>
 						 							</div>
 						 						</div>
-						 						<span class="pf-title"><b>Descripción</b> (Cuentanos el detalle de la proforma, esto te ayudara llegar a más personas)</span>
+						 						<span class="pf-title" style="margin-top: -30px;"><b>Descripción</b> (Cuentanos el detalle de la proforma, esto te ayudara llegar a más personas)</span>
 						 						<div class="pf-field">
 						 							<textarea name="description">{{ old('description') }}</textarea>
 						 							@if($errors->has('description'))
@@ -115,7 +116,7 @@
 							 							<div class="col-4">
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Provincia</b></span>
-									 							<select name="state" data-placeholder="Select Your CV" class="form-control">
+									 							<select name="state" class="form-control">
 									 								<option value="">Seleccionar provinvia</option>
 																	@foreach($states as $state)
 									 									<option value="{{ $state->name }}">{{ $state->name }}</option>
