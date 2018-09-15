@@ -35,7 +35,7 @@
 
 	
 	@if(auth()->check())
-		{{ $com = App\Company::where('id',Auth::user()->id)->first() }}
+		<div style="display: none;">{{ $com = App\Company::where('id',Auth::user()->id)->first() }}</div>
 		<div class="responsive-header">
 			<div class="responsive-menubar">
 			<div class="res-logo"><a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a></div>
@@ -71,8 +71,16 @@
 						<a href="{{ route('public.home') }}" title=""><img src="{{ asset('images/logo-vip.png') }}" alt="" /></a>
 					</div><!-- Logo -->
 					<div class="my-profiles-sec">
-						
-						<span><img width="50" src="{{ asset('images') }}/{{ $com->image }}" alt="" />Hola, {{ Auth::user()->name }}<i class="la la-bars icon_white"></i></span>
+						@if($com==null)
+							@php
+								$hi_user = explode('@', Auth::user()->email);
+								$hi = $hi_user[0];
+
+							@endphp
+							<span><img width="50" src="{{ asset('images/avatar_user.png') }}" alt="" />Hola, {{ $hi }} <i class="la la-bars icon_white"></i></span>
+						@else
+							<span><img width="50" src="{{ asset('images') }}/{{ $com->image }}" alt="" />Hola, {{ Auth::user()->name }}<i class="la la-bars icon_white"></i></span>
+						@endif
 					</div>
 					<div class="wishlist-dropsec">
 						{{-- <span><i class="la la-heart"></i><strong>3</strong></span> --}}
@@ -288,12 +296,22 @@
 		<span class="close-profile"><i class="la la-close icon_white"></i></span>
 		<div class="can-detail-s">
 			
+			@if($com==null)
+			<div class="cst"><img src="{{ asset('images/avatar_user.png') }}" alt="" /></div>
+			<h3>David Isama</h3>
+			<span><i>Actualizar</i> Datos de Empresa</span>
+			<p>{{ Auth::user()->email }}</p>
+			<p>Miembro desde, {{ substr(Auth::user()->created_at, 0,4) }}</p>
+			<p><i class="la la-map-marker"></i>Actualizar Ubicación</p>
+			@else
 			<div class="cst"><img src="{{ asset('images') }}/{{ $com->image }}" alt="" /></div>
 			<h3>David Isama</h3>
 			<span><i>{{ $com->name_company }}</i> {{ $com->profession }}</span>
 			<p>{{ Auth::user()->email }}</p>
 			<p>Miembro desde, {{ substr(Auth::user()->created_at, 0,4) }}</p>
 			<p><i class="la la-map-marker"></i>{{ Auth::user()->state }},</p>
+			@endif
+			
 		</div>
 		<div class="tree_widget-sec">
 			<ul>
@@ -308,7 +326,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Salir</a>
+					<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="la la-unlink"></i> Salir</a>
 				</li>
 	            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 	                @csrf
@@ -359,20 +377,31 @@
 
 <div class="account-popup-area signup-popup-box">
 	<div class="account-popup">
-		<span class="close-popup"><i class="la la-close"></i></span>
+		<span class="close-popup"><i class="la la-close icon_white"></i></span>
 		<h3>Registrarme</h3>
 		{{-- <div class="select-user">
 			<span>Quiero buscar</span>
 			<span>Quiero anunciar</span>
 		</div> --}}
-		<form>
+		<form action="{{ route('register') }}" method="POST">
+			@csrf
 			<div class="cfield">
-				<input type="text" placeholder="Email" />
+				<input type="text" required placeholder="Email" name="email" value="{{ old('email') }}" />
 				<i class="la la-envelope-o"></i>
+				@if ($errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
 			</div>
 			<div class="cfield">
-				<input type="password" placeholder="********" />
+				<input type="password" required placeholder="********" name="password" value="{{ old('password') }}" />
 				<i class="la la-key"></i>
+				@if ($errors->has('password'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
 			</div>
 			{{-- <div class="dropdown-field">
 				<select data-placeholder="Please Select Specialism" class="chosen">
@@ -383,7 +412,7 @@
 				</select>
 			</div> --}}
 			<div class="cfield">
-				<input type="text" placeholder="Celular" />
+				<input type="text" placeholder="Celular" name="movil" required value="{{ old('movil') }}" />
 				<i class="la la-phone"></i>
 			</div>
 			<button type="submit">Registrarme</button>

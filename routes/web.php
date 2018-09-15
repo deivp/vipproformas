@@ -55,11 +55,12 @@ Route::put('update/{ad}','Panel\proformsController@update')->name('panel.update'
 Route::delete('delete/{ad}','Panel\proformsController@destroy')
 		->name('panel.destroy');
 
+// Route::get('configuracion/datosPersonales','')->name('panel.datos_personales');
 
+
+Auth::routes();
 
 Route::post('acceder', 'Auth\LoginController@login')->name('user_login');
-Route::post('salir', 'Auth\LoginController@logout')
-		->name('logout');
 
 
 
