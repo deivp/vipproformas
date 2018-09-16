@@ -14,11 +14,13 @@ class userSeeder extends Seeder
     {
         factory(User::class)->create([
 
-        	'name'=>'David isama',
+        	'name'=>'David',
+            'lastname'=>'Isama',
         	'email'=>'david@gmail.com',
         	'dni'=>'1003712880',
         	'movil'=>'0992901334',
-        	'state'=>'Pichincha',
+            'studies'=>'Superior',
+        	'prov'=>'Pichincha',
         	'city'=>'Quito',
         	'rol'=>'0',
         	'status'=>'1',
@@ -28,11 +30,13 @@ class userSeeder extends Seeder
 
         factory(User::class)->create([
 
-        	'name'=>'Silvia Pilataxi',
+        	'name'=>'Silvia',
+            'lastname'=>'Pilataxi',
         	'email'=>'silvia@gmail.com',
         	'dni'=>'0604463760',
         	'movil'=>'0959678531',
-        	'state'=>'Chimborazo',
+            'studies'=>'Postgrado',
+        	'prov'=>'Chimborazo',
         	'city'=>'Riobamba',
         	'rol'=>'0',
         	'status'=>'1',
@@ -41,8 +45,9 @@ class userSeeder extends Seeder
         ]);
 
         factory(User::class, 10)->create([
-            'state'=>'Pichincha',
-            'city'=>'Quito',
+            'studies'=>'Secundaria',
+            'prov'=>'Guayas',
+            'city'=>'Guayaquil',
             'rol'=>'0',
             'status'=>'1',
         ]);

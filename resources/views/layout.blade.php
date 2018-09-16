@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-	<meta name="author" content="CreativeLayers">
 
 	<!-- Styles -->
 
@@ -298,7 +297,7 @@
 			
 			@if($com==null)
 			<div class="cst"><img src="{{ asset('images/avatar_user.png') }}" alt="" /></div>
-			<h3>David Isama</h3>
+			<h3> Isama</h3>
 			<span><i>Actualizar</i> Datos de Empresa</span>
 			<p>{{ Auth::user()->email }}</p>
 			<p>Miembro desde, {{ substr(Auth::user()->created_at, 0,4) }}</p>
@@ -318,10 +317,11 @@
 				<li>
 					<a href="{{ route('panel.mis_proformas') }}"><i class="far fa-file-alt"></i> Mis Proformas</a>
 				</li>
-				<li class="inner-child">
+				<li>
 					<a href="#" title=""><i class="fas fa-user-cog"></i>My Perfil</a>
 					<ul style="display: block;">
-						<li><a href="#" title="">Datos de usuario</a></li>
+						<li><a href="{{ route('panel.datos_personales') }}" title="">Datos Personales</a></li>
+						<li><a href="" title="">Datos Empresariales</a></li>
 						<li><a href="#" title="">Cambiar contraseña</a></li>
 					</ul>
 				</li>
@@ -412,7 +412,7 @@
 				</select>
 			</div> --}}
 			<div class="cfield">
-				<input type="text" placeholder="Celular" name="movil" required value="{{ old('movil') }}" />
+				<input type="text" maxlength="10" placeholder="Celular" name="movil" required value="{{ old('movil') }}" />
 				<i class="la la-phone"></i>
 			</div>
 			<button type="submit">Registrarme</button>

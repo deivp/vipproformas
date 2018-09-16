@@ -55,7 +55,11 @@ Route::put('update/{ad}','Panel\proformsController@update')->name('panel.update'
 Route::delete('delete/{ad}','Panel\proformsController@destroy')
 		->name('panel.destroy');
 
-// Route::get('configuracion/datosPersonales','')->name('panel.datos_personales');
+Route::get('configuracion/datosPersonales','Panel\userController@index')
+		->name('panel.datos_personales')->middleware('auth');
+
+Route::put('configuracion/datosPersonales/{user}','Panel\userController@update')
+		->name('panel.user.edit')->middleware('auth');
 
 
 Auth::routes();
