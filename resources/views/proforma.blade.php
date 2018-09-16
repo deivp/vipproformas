@@ -78,7 +78,41 @@
 							 			
 								 		<div class="quick-form-job">
 								 			<div class="job-single-head3">
-							 				<div class="job-thumb"> <img src="{{ asset('images') }}/{{ $company->image }}" alt="" /><span style="color:green"><i class="fas fa-user-check"></i> Verificado</span> </div>
+								 			@if(App\Company::where('user_id',Auth::user()->id)->first()==null)
+								 			{{-- DATOS AVATAR COMPANIA --}}
+								 			<div class="job-thumb"> <img src="{{ asset('images/avatar_user.png') }}" alt="" /><span style="color:green"><i class="fas fa-user-check"></i> Verificado</span> </div>
+							 				<div class="job-single-info3">
+							 					<h3>{{ $user->email }}</h3>
+							 					<span><i class="fas fa-mobile-alt"></i>0{{ $user->movil }}</span>
+							 					<ul class="tags-jobs">
+								 					<li><i class="la la-calendar-o"></i> Desde: {{ substr($user->created_at, 0,10)  }}</li>
+								 					{{-- <li><i class="la la-eye"></i> Visitas 5683</li> --}}
+								 				</ul>
+							 				</div>
+							 			</div>
+							 				<h3>!Contacta al anunciate¡</h3>
+								 			<form>
+								 				<textarea placeholder="Mensaje para">Hola, vi este anuncio en Vipproformas y quiero que me contacten. Gracias.</textarea>
+								 				<input type="text" placeholder="E-mail *" />
+								 				<input type="text" placeholder="Nombre *" />
+								 				<input type="text" placeholder="Teléfono *" />
+								 				<button class="submit">Contactar</button>
+								 				<span>Al enviar estás aceptando los <a href="#" title="">Términos y condiciones</a></span>
+								 			</form>
+								 		</div>
+
+								 		<div class="job-overview">
+								 			
+								 			<ul>
+								 				<li><i class="la la-money"></i><h3>Precio Desde</h3><span>${{ $ad->price }}</span></li>			 				
+								 				<li><i class="la la-thumb-tack"></i><h3>Categoria</h3><span>{{ $ad->category }}</span></li>
+								 				
+								 			</ul>
+								 		</div>
+								 			{{-- FIN DATOS AVATAR COMPANIA --}}
+								 			@else
+								 			{{-- SI HAY DATOS DE COMPANIA --}}
+								 			<div class="job-thumb"> <img src="{{ asset('images') }}/{{ $company->image }}" alt="" /><span style="color:green"><i class="fas fa-user-check"></i> Verificado</span> </div>
 							 				<div class="job-single-info3">
 							 					<h3>{{ $company->name_company }}</h3>
 							 					<span><i class="fas fa-mobile-alt"></i>0{{ $user->movil }}</span>
@@ -107,7 +141,10 @@
 								 				<li><i class="la la-thumb-tack"></i><h3>Categoria</h3><span>{{ $ad->category }}</span></li>
 								 				<li><i class="fas fa-globe"></i><h3>Experiencia</h3><span>{{ $company->company_age	 }} Años</span></li>
 								 			</ul>
-								 		</div><!-- Job Overview -->
+								 		</div>
+								 			{{-- FIN DATOS DE COMPANIA SI ES QUE HAY!! --}}
+								 			@endif
+							 				<!-- Job Overview -->
 							 		</div>
 							 	</div>
 							 </div>

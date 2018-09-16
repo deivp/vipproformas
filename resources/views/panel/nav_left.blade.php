@@ -13,7 +13,7 @@
 				<li class="inner-child">
 				<a href="#" title=""><i class="fas fa-user-cog"></i>Mi Perfil</a>
 				<ul style="display: block;">
-					<li><a href="#" title="">Datos Personales</a></li>
+					<li><a href="{{ route('panel.datos_personales') }}" title="">Datos Personales</a></li>
 					<li><a href="#" title="">Datos Empresariales</a></li>
 					<li><a href="#" title="">Cambiar contraseña</a></li>
 				</ul>

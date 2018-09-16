@@ -297,14 +297,16 @@
 			
 			@if($com==null)
 			<div class="cst"><img src="{{ asset('images/avatar_user.png') }}" alt="" /></div>
-			<h3> Isama</h3>
-			<span><i>Actualizar</i> Datos de Empresa</span>
+			<h3>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</h3>
+			
+			<span><a href="{{ route('panel.datos_personales') }}"><i>Actualizar</i> Información</a></span>
 			<p>{{ Auth::user()->email }}</p>
 			<p>Miembro desde, {{ substr(Auth::user()->created_at, 0,4) }}</p>
-			<p><i class="la la-map-marker"></i>Actualizar Ubicación</p>
+			<p><i class="la la-map-marker"></i>{{ Auth::user()->prov }}</p>
+			
 			@else
 			<div class="cst"><img src="{{ asset('images') }}/{{ $com->image }}" alt="" /></div>
-			<h3>David Isama</h3>
+			<h3>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</h3>
 			<span><i>{{ $com->name_company }}</i> {{ $com->profession }}</span>
 			<p>{{ Auth::user()->email }}</p>
 			<p>Miembro desde, {{ substr(Auth::user()->created_at, 0,4) }}</p>

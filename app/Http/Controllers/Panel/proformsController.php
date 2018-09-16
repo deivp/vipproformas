@@ -78,6 +78,8 @@ class proformsController extends Controller
             'description'=>$ad['description'],
             'category'=>$ad['category'],
             'imagen_1'=>'avatar_trab_b.png',
+            'imagen_2'=>'avatar_trab_a.png',
+            'imagen_3'=>'avatar_trab_c.png',
             
 
         ]);
