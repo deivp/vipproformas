@@ -1034,8 +1034,8 @@ label::after {
     margin-top: 10px;
 }
 .job-search form {
-    float: left;
-    width: 100%;
+    float: right;
+    width: 80%;
     margin-top: 40px;
 }
 .job-field {
@@ -2041,7 +2041,7 @@ header.style2 nav {
 .search-job2 {
     float: left;
     width: 80%;
-    background: rgba(255,255,255,0.3);
+    
     border-radius: 60px;
 
     margin-top: 50px;

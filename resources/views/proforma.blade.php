@@ -1,6 +1,5 @@
 @extends('layout')
 @section('contenido')
-
 	<br><br><br>
 	<section>
 		<div class="block">
@@ -8,10 +7,9 @@
 				<div class="row">
 				 	<div class="col-lg-12 column">
 				 		<div class="job-single-sec style3">
-				 			
 				 			<div class="job-wide-devider">
 							 	<div class="row">
-							 		<div class="col-lg-8 column" style="background-color: white">		
+							 		<div class="col-lg-8 column" style="background-color: white">
 							 			<div class="job-details">
 							 				<h2><a href=""></a>{{ $ad->title }}</h2>
 							 				{{-- <span><a href="{{ url()->previous() }}"><i class="fas fa-arrow-left"></i>  --}}</a><i class="la la-map-marker"></i>{{ $ad->state }},</span>
@@ -74,11 +72,13 @@
 							 				@endforeach
 							 			</div>
 							 		</div>
+
 							 		<div class="col-lg-4-ad column">
 							 			
 								 		<div class="quick-form-job">
 								 			<div class="job-single-head3">
-								 			@if(App\Company::where('user_id',Auth::user()->id)->first()==null)
+
+								 			@if(App\Company::where('user_id',App\Ad::where('id',1)->first()->value('user_id'))->first()==null)
 								 			{{-- DATOS AVATAR COMPANIA --}}
 								 			<div class="job-thumb"> <img src="{{ asset('images/avatar_user.png') }}" alt="" /><span style="color:green"><i class="fas fa-user-check"></i> Verificado</span> </div>
 							 				<div class="job-single-info3">
@@ -135,7 +135,6 @@
 								 		</div>
 
 								 		<div class="job-overview">
-								 			
 								 			<ul>
 								 				<li><i class="la la-money"></i><h3>Precio Desde</h3><span>${{ $ad->price }}</span></li>			 				
 								 				<li><i class="la la-thumb-tack"></i><h3>Categoria</h3><span>{{ $ad->category }}</span></li>

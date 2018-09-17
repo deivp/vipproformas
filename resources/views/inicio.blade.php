@@ -14,7 +14,7 @@
 							<div class="job-search-sec">
 								<div class="job-search style2">
 									<h3>Profesionales de la construcción <i class="fas fa-brush fa-sm"></i></h3>
-									<span style="font-size: 25px">Presupuestos económicos y de calidad en tu zona</span>
+									<span style="font-size: 25px;color: white; padding-right: 30px;">Presupuestos económicos y de calidad en tu zona</span>
 									<div class="search-job2">	
 										<form action="{{ route('public.buscar_proformas') }}" method="POST">
 											{{ csrf_field() }}
@@ -37,7 +37,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2  col-md-3 col-sm-12">
-                                                    <button type="submit">BUSCAR <i class="la la-search"></i></button>
+                                                    <button type="submit">BUSCAR <i class="la la-search icon_white"></i></button>
                                                 </div>
 											</div>
 										</form>
