@@ -27,7 +27,7 @@ class publicPagesController extends Controller
         $total_companies = Company::count();
         $total_users = User::count();
 
-        return view('inicio', compact('categories','ads','companies','total_ads','total_companies','total_users'));
+        return view('home', compact('categories','ads','companies','total_ads','total_companies','total_users'));
     }
 
     public function ultimas_proformas(){
