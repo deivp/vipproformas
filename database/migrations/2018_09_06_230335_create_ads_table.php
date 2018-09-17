@@ -21,7 +21,7 @@ class CreateAdsTable extends Migration
             $table->string('subcategory')->nullable();
             $table->string('title');
             $table->text('description');
-            $table->float('price')->nullable();
+            $table->float('price',8,2)->nullable();
             $table->text('imagen_1')->nullable();
             $table->text('imagen_2')->nullable();
             $table->text('imagen_3')->nullable();

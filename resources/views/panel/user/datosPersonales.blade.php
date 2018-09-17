@@ -33,7 +33,7 @@
 							 							<div class="col-6">
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Nombres</b></span>
-<input type="text" value="{{ $user_data->name }}{{ old('name') == $user_data->name? ' ' :'' }}" name="name" />
+<input type="text" value="{{ $user_data->name }}{{ old('name')==$user_data->name? ' ' :'' }}" name="name" />
 									 							@if($errors->has('name'))
 									 							<br>
 									 								<small class="alert alert-danger">{{ $errors->first('name') }}</small>

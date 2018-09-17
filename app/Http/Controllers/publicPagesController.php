@@ -58,14 +58,9 @@ class publicPagesController extends Controller
         $categories = Category::all();
 
 
-        $ads = DB::table('ads')
-                    ->join('companies','ads.user_id','=','companies.user_id')
-                    ->select('ads.*','companies.name_company','companies.image')
-                    ->where('ads.category',$filtro['categoria'])
-                    ->limit(20)
-                    ->get();
-
+        $ads = Ad::where('category', $filtro['categoria'])->limit(20)->get();
         
+
         $total_ads = $ads->count();
     	
         return view('search_result',compact('ads','tag','states','categories','total_ads'));

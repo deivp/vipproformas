@@ -65,7 +65,9 @@ class proformsController extends Controller
     );
         
         if($ad['price']==null){
-            $price = 0.00;
+            $price = 0;
+        }else{
+            $price = $ad['price'];
         }
         
         //dd($ad['state']);
@@ -128,7 +130,6 @@ class proformsController extends Controller
             'title'=>'required',
             'description'=>'required|min:5',
             'category'=>'required',
-            'price'=>'',
             'state'=>'required',
         ],[
             'title.required'=>'Escribe un titulo para la proforma',
@@ -138,8 +139,11 @@ class proformsController extends Controller
             'state.required'=>'Debe seleccionar una provincia',
         ]);
 
-        //$ad_data = request()->all();
 
+        $ad_data = request()->all();
+
+
+        Ad::where('user_id',Auth::user()->id)->update(['state'=>$ad_data['state']]);
 
         $ad->update($ad_data);
 

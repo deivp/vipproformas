@@ -71,13 +71,25 @@
 									</div>
 									<h3><a href="{{route('public.ver_proforma',[$ad->id,str_replace(' ', '-', $ad->title)])}}.html" title="">{{ $ad->title }}</a></h3>
 									<div class="job-lctn"><i class="la la-map-marker"></i><a href="{{route('public.ver_proforma',[$ad->id,str_replace(' ', '-', $ad->title)])}}.html">{{ $ad->state }}, &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-search-plus"></i>{{ $ad->category }}</a></div>
-									<span>{{ $ad->name_company }}</span>
+									
+									@if(App\Company::where('user_id',$ad->user_id)->first()==null)
+										
+									@else
+									<span>{{ App\Company::where('user_id',$ad->user_id)->first()->value('name_company') }}</span>
+									@endif
+
+									
+
 									<div class="job-lctn"><a href="{{route('public.ver_proforma',[$ad->id,str_replace(' ', '-', $ad->title)])}}.html">{{ $ad->description }}</a></div>
 									
 								</div>
 								<div class="job-style-bx">
-									<img style="padding-bottom: 5px" class="rounded mx-auto d-block" width="80" src="{{ asset('images/avatar_user.png') }}" alt="">
-									<a href=""><span class="job-is ft">Contactar</span></a>
+									@if(App\Company::where('user_id',$ad->user_id)->first()==null)
+										<img style="padding-bottom: 5px" class="rounded mx-auto d-block" width="80" src="{{ asset('images/avatar_user.png') }}" alt="">
+									@else
+									<img style="padding-bottom: 5px" class="rounded mx-auto d-block" width="80" src="{{ asset('images') }}/{{ App\Company::where('user_id',$ad->user_id)->first()->value('image') }}" alt="">
+									@endif
+									<a href="#"><span class="job-is ft">Contactar</span></a>
 									<i style="padding-bottom: 10px; padding-right: 13px" >{{ substr($ad->created_at, 0,10) }}</i>
 								</div>
 								</div>

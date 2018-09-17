@@ -9,8 +9,12 @@
 				 	@include('panel.nav_left')
 				 	<div class="col-lg-1 column"></div>
 				 	<div class="col-lg-8 column">
-				 		<a href="{{ route('panel.mis_proformas') }}" class="btn btn-dark"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;
-				 		<a href="" class="btn btn-dark"><i class="fas fa-trash-alt light_icon"></i> ELIMINAR PROFORMA</a>
+						<form onsubmit="return confirm('¿Esta seguro de eliminar esta proforma?');" action="{{ route('panel.destroy',$ad->id) }}" method="POST">
+							@csrf
+							{{ method_field('DELETE') }}
+							
+						</form>
+				 		<a href="{{ route('panel.mis_proformas') }}" class="btn btn-dark pull-left"><i class="fas fa-angle-left light_icon"></i> VOLVER A MIS PROFORMAS</a>&nbsp;&nbsp;<button style="margin-left: 10px;" class="btn btn-dark pull-left"><i class="fas fa-trash-alt light_icon"></i> ELIMINAR PROFORMA</button>
 				 		<hr>
 				 		<div class="alert alert-light alert-dismissible fade show" role="alert">
 						  <strong>Recomendaciones para completar tu proforma:</strong><br>
@@ -126,9 +130,9 @@
 							 								<div class="pf-field">
 							 									<span class="pf-title"><b>Provincia</b></span>
 									 							<select name="state" class="form-control">
-									 								<option value="{{ $ad->state }}">{{ strtolower($ad->state) }}</option>
+									 								<option value="{{ $ad->state }}">{{ $ad->state }}</option>
 																	@foreach($states as $state)
-									 									<option value="{{ $state->name }}">{{ $state->name }}</option>
+<option value="{{ $state->name }}"{{ old('state')==$state->name?' selected': '' }}>{{ $state->name }}</option>
 									 								@endforeach
 																</select>
 																@if($errors->has('state'))
